@@ -5,7 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.mohitsharda.whereismyvaccine.R
+//import com.mohitsharda.whereismyvaccine.R
+
+import com.abhishek.myapplication.R
 
 class CenterRvAdapter(private val centerList: List<CenterRvModel>) :
     RecyclerView.Adapter<CenterRvAdapter.CenterRVViewHolder>() {
