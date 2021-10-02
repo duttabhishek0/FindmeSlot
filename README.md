@@ -1,4 +1,6 @@
 # FindMeSlot App
+[![CI](https://github.com/duttabhishek0/Empty/actions/workflows/main.yml/badge.svg)](https://github.com/duttabhishek0/Empty/actions/workflows/main.yml)
+
 Finally, after a long wait, Vaccinations are here!! But wait, isn't it too cumbersome to stand in those long queues and then ultimately get disappointed, cause you didn't get the slot, even after slogging under the sun for so long? Don't worry, when we come in handy to you. I introduce the FindmeSlot application.<br>
 The aim of the project is to keep the users updated about the slots of the vaccination centre. Cause finding an empty slot is quite cumbersome this day.
 # Purpose
