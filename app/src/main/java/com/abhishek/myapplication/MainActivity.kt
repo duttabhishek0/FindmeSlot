@@ -1,39 +1,41 @@
 package com.abhishek.myapplication
 
 import android.app.DatePickerDialog
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.abhishek.myapplication.adapter.SingleItemAdapter
+import com.abhishek.myapplication.databinding.ActivityMainBinding
+import com.abhishek.myapplication.model.SingleItemModel
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-
-import com.abhishek.myapplication.databinding.ActivityMainBinding
-
 import org.json.JSONException
 import java.util.*
 
 @Suppress("NAME_SHADOWING")
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var centerList: MutableList<CenterRvModel>
-    private lateinit var centerRVAdapter: CenterRvAdapter
+    private lateinit var centerList: MutableList<SingleItemModel>
+    private lateinit var singleItemAdapter: SingleItemAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
-        
+
         centerList = mutableListOf()
 
         binding.centerListRecyclerView.layoutManager = LinearLayoutManager(this)
 
 
+        /**
+         *  View Binder
+         */
         binding.btnSearch.setOnClickListener {
             closeKeyboard()
             val pinCode = binding.etPinCode.text.toString()
@@ -63,6 +65,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Mehtod to get the details of the appointment
+     *
+     * @param pinCode
+     * @param date
+     */
     private fun getAppointment(pinCode: String, date: String) {
         val url =
             "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=$pinCode&date=$date"
@@ -89,7 +97,7 @@ class MainActivity : AppCompatActivity() {
                     val vaccineName = sessionObj.getString("vaccine")
                     val availableCapacity = sessionObj.getInt("available_capacity")
 
-                    val center = CenterRvModel(
+                    val center = SingleItemModel(
                         centerName,
                         centerAddress,
                         centerFromTime,
@@ -101,10 +109,10 @@ class MainActivity : AppCompatActivity() {
                     )
                     centerList.add(center)
                 }
-                centerRVAdapter = CenterRvAdapter(centerList)
-                binding.centerListRecyclerView.adapter = centerRVAdapter
+                singleItemAdapter = SingleItemAdapter(centerList)
+                binding.centerListRecyclerView.adapter = singleItemAdapter
                 binding.centerListRecyclerView.setHasFixedSize(true)
-                centerRVAdapter.notifyDataSetChanged()
+                singleItemAdapter.notifyDataSetChanged()
             } catch (e: JSONException) {
                 e.printStackTrace()
             }
@@ -114,6 +122,8 @@ class MainActivity : AppCompatActivity() {
         })
         queue.add(request)
     }
+
+
 
     private fun closeKeyboard() {
         val view = this.currentFocus

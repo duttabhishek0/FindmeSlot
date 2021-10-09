@@ -1,15 +1,16 @@
-package com.abhishek.myapplication
+package com.abhishek.myapplication.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-
 import com.abhishek.myapplication.R
+import com.abhishek.myapplication.model.SingleItemModel
 
-class CenterRvAdapter(private val centerList: List<CenterRvModel>) :
-    RecyclerView.Adapter<CenterRvAdapter.CenterRVViewHolder>() {
+
+class SingleItemAdapter(private val centerList: List<SingleItemModel>) :
+    RecyclerView.Adapter<SingleItemAdapter.CenterRVViewHolder>() {
     class CenterRVViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val centerNameTV = itemView.findViewById<TextView>(R.id.tv_center_name)
         val centerAddressTV = itemView.findViewById<TextView>(R.id.tv_center_address)
@@ -22,7 +23,7 @@ class CenterRvAdapter(private val centerList: List<CenterRvModel>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CenterRVViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.center_rv_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.single__item_desc, parent, false)
         return CenterRVViewHolder(itemView)
     }
 

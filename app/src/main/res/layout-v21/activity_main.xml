@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        tools:listitem="@layout/center_rv_item"/>
+        tools:listitem="@layout/single__item_desc"/>
 
 
 </LinearLayout>
