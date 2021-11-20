@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/FindmeSlot/app/src/main/res/drawable/ic_baseline_timeline_24.xml" value="0.26614583333333336" />
+        <entry key="..\:/Android/FindmeSlot/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Android/FindmeSlot/app/src/main/res/layout/single__item_desc.xml" value="0.4" />
         <entry key="..\:/Temp/FindmeSlot/app/src/main/res/layout-v21/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Temp/FindmeSlot/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Temp/FindmeSlot/app/src/main/res/layout/center_rv_item.xml" value="0.1793478260869565" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
