@@ -8,22 +8,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.abhishek.myapplication.R
 import com.abhishek.myapplication.model.SingleItemModel
 
-
-class SingleItemAdapter(private val centerList: List<SingleItemModel>) :
+class SingleItemAdapter(private var centerList: List<SingleItemModel>) :
     RecyclerView.Adapter<SingleItemAdapter.CenterRVViewHolder>() {
+
+    // ViewHolder class to hold the views
     class CenterRVViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val centerNameTV = itemView.findViewById<TextView>(R.id.tv_center_name)
-        val centerAddressTV = itemView.findViewById<TextView>(R.id.tv_center_address)
-        val centerTimingsTV = itemView.findViewById<TextView>(R.id.tv_center_timing)
-        val vaccineNameTV = itemView.findViewById<TextView>(R.id.tv_vaccine_name)
-        val ageLimitTV = itemView.findViewById<TextView>(R.id.tv_age_limit)
-        val feeTypeTV = itemView.findViewById<TextView>(R.id.tv_fee_type)
-        val availabilityTV = itemView.findViewById<TextView>(R.id.tv_availability)
+        val centerNameTV: TextView = itemView.findViewById(R.id.tv_center_name)
+        val centerAddressTV: TextView = itemView.findViewById(R.id.tv_center_address)
+        val centerTimingsTV: TextView = itemView.findViewById(R.id.tv_center_timing)
+        val vaccineNameTV: TextView = itemView.findViewById(R.id.tv_vaccine_name)
+        val ageLimitTV: TextView = itemView.findViewById(R.id.tv_age_limit)
+        val feeTypeTV: TextView = itemView.findViewById(R.id.tv_fee_type)
+        val availabilityTV: TextView = itemView.findViewById(R.id.tv_availability)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CenterRVViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.single__item_desc, parent, false)
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.single__item_desc, parent, false)
         return CenterRVViewHolder(itemView)
     }
 
@@ -44,4 +45,16 @@ class SingleItemAdapter(private val centerList: List<SingleItemModel>) :
         return centerList.size
     }
 
+    // Method to update the data in the adapter
+    fun updateData(newCenterList: List<SingleItemModel>) {
+        centerList = newCenterList
+        notifyDataSetChanged() // Notify the adapter to refresh the data
+    }
+
+    // Optional: Clear references if needed (e.g., if holding onto contexts or large data)
+    fun clear() {
+        // Clear the list to help with garbage collection
+        centerList = emptyList()
+        notifyDataSetChanged()
+    }
 }
